@@ -10,7 +10,9 @@ import static com.github.maikoncanuto.controllers.AcaoJogo.luta;
 
 public class CampoBatalha {
 
-    public ResultadoJogo batalha(Jogador jogador1, Jogador jogador2) {
+    private CampoBatalha() {}
+
+    public static ResultadoJogo batalha(Jogador jogador1, Jogador jogador2) {
         List<String> logJogo = new LinkedList<>();
 
         Jogador primeiroJogador = jogador1.getPrimeiroJogador() ? jogador1 : jogador2;
@@ -26,7 +28,7 @@ public class CampoBatalha {
         return resultado(primeiroJogador, segundoJogador, logJogo);
     }
 
-    private ResultadoJogo resultado(Jogador jogador1, Jogador jogador2, List<String> logJogo) {
+    private static ResultadoJogo resultado(Jogador jogador1, Jogador jogador2, List<String> logJogo) {
         ResultadoJogo resultadoJogo = new ResultadoJogo();
 
         if (jogador1.getVida() == 0)
@@ -39,7 +41,7 @@ public class CampoBatalha {
         return resultadoJogo;
     }
 
-    private void determinarVencedores(Jogador vencedor, Jogador perdedor, ResultadoJogo resultadoJogo) {
+    private static void determinarVencedores(Jogador vencedor, Jogador perdedor, ResultadoJogo resultadoJogo) {
         resultadoJogo.setJogadorVencedor(vencedor);
         resultadoJogo.setJogadorPerdedor(perdedor);
     }
